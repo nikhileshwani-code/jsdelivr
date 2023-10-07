@@ -14,6 +14,12 @@ fetch(url)
     // console.log(data.originalPiece);// Log the data to the console
     // console.log(data.replacePiece);
     console.log(data);
+    for (var i=0;i<data.length;i++){
+
+      findAndReplace(data[i].originalPiece, data[i].replacePiece);
+    
+    }
+    
   })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error);
@@ -36,8 +42,3 @@ fetch(url)
 
 // Usage example:
 
-for (var i=0;i<data.length;i++){
-
-  findAndReplace(data[i].originalPiece, data[i].replacePiece);
-
-}
