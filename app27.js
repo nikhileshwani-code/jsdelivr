@@ -139,7 +139,7 @@ function changeImageSrc(oldSrc, newSrc) {
         for(let j = 0; j < originalSrc.length; j++) {
           console.log("inside for");
     if((images[i].src)[j] !== oldSrc[j]) {
-        console.log(`Mismatch at position ${j}: ${originalSrc[j]} !== ${dbSrc[j]}`);
+        console.log(`Mismatch at position ${j}: ${(images[i].src)[j]} !== ${dbSrc[j]}`);
         //break;
     }
 }
