@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Keyboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Custom Keyboard Trigger Example</h2>
+
+    <!-- Input field -->
+    <input type="text" id="myInput" placeholder="Focus here, but keyboard won't appear">
+
+    <!-- Custom keyboard icon -->
+    <button id="keyboardIcon">Show Keyboard</button>
+
+    <script>
+        const inputField = document.getElementById('myInput');
+        const keyboardIcon = document.getElementById('keyboardIcon');
+
+        // Prevent keyboard from opening when input is focused
+        inputField.addEventListener('focus', function(event) {
+            event.preventDefault(); // Stops default keyboard opening
+        });
+
+        // Handle touchstart event to prevent keyboard on touch
+        inputField.addEventListener('touchstart', function(event) {
+            event.preventDefault(); // Prevent default keyboard behavior
+            inputField.focus({ preventScroll: true }); // Focus without opening keyboard
+        });
+
+        // Manually open the keyboard when the button is clicked
+        keyboardIcon.addEventListener('click', function() {
+            inputField.focus(); // This will now trigger the keyboard
+        });
+    </script>
+</body>
+</html>
